@@ -7,18 +7,22 @@ For the purpose of this document we define **modes** as working modes that can b
 Module and readout blocks should implement two modes of operation: **standard mode** and **hit counting mode** and they should be configured via the same register to avoid mismatches.
 
 ##Physical access block
-This block has two **implementations**
-Optical: wrapping around N×GBT-FPGA blocks → SFP+ FMC
-Electrical → interface FMC
-(must implement I²C master)
-Presents the same interface to the module block
-Module does not know in which mode the system is working
-The only difference is the number of available links
-Detects FE power-on and sends command to module
+This block has two (main) **implementations**. **Optical implementation**: wrapping around N×GBT-FPGA blocks connecting to a COTS FMC with a number of SFP+ cages and **Electrical implementation** connecting to the custom-made interface FMC. Each custom-made FMC interface will need a different implementation of the Physical access block.
+
+The electrical access block implements also an I²C master and presents the same interface as the optical to the module block.
+
+Interface to the module block: (t.b.d.)
 
 ##Module block
-def
+Module block
+Transmits slow and fast commands
+Receives and unpacks data
+Syncs trigger and stub data
+Can forward stub detection to fast command block
+Sends data to the readout block
+Can pre-process hits data for calibration (hit or stub counting)
 
+(more details further on)
 ##Readout block
 abc
 
