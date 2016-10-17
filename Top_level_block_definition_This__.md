@@ -24,7 +24,25 @@ Can pre-process hits data for calibration (hit or stub counting)
 
 (more details further on)
 ##Readout block
-abc
+Data mode:
+Manages memory readout and back-pressure
+Optionally could stream data to SFP+ connectors on the FMC
+(iif optical readout is present, one connector can be dedicated to fast streams)
+Data formatting for the DAQ, according to payload specs
+Performs post-scaling (to exercise fast trigger rates with limited bandwidth)
+Count mode:
+Used for commissioning: holds hit/cluster/stub counts per strip
+Takes care to add counters properly – as many counters as conditions (e.g. thresholds)
 
 ##Fast command block
-def
+Recovers clock and trigger from backplane
+Can generate clock and periodic triggers
+Holds a trigger counter: it can be programmed to accept next N triggers and then hold the next incoming triggers
+Can issue a trigger upon reception of a stub from modules
+
+##Supervisor block
+Holds a local stack of operations to be executed sequentially:
+I²C transactions for F.E. (via module)
+Generate (or accept next) N triggers
+Push hit counters to appropriate memory location
+Significant reduction of IPBus transactions needed for a calibration operation (à la pixel DTB)
