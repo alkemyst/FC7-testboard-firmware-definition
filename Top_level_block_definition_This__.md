@@ -26,9 +26,9 @@ The module block is split in the following blocks:
 * CIC unpacker: (if needed) splits stub & hits streams, otherwise ~ passthrough
 * Chip data align
 * Hit processing:
-** Hit count can be activated to count hits (or clusters or stub) per strip locally
-** Always sends stub to trigger with fixed latency
-** When requested, queues data to readout block
+ * Hit count can be activated to count hits (or clusters or stub) per strip locally
+ * Always sends stub to trigger with fixed latency
+ * When requested, queues data to readout block
 
 ##Readout block
 Data mode:
