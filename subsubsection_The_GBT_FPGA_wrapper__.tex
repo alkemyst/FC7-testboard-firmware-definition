@@ -1,2 +1,18 @@
 \subsubsection{The GBT-FPGA wrapper}
 The GBT-FPGA components are integrated into a module called the \textbf{GBT Bank} and a single bank may contain multiple \textbf{GBT Links}. While most of the components of a GBT Bank are common for most FPGA families, each link comprises a GBT Tx, a GBT Rx and a Multi-Gigabit Transceiver (MGT). 
+
+A GBT-FPGA link is used to emulate the GBTx serial link [3], and can also be instantiated on back-end FPGAs. Clocking resources are external to the GBT Bank, providing the user flexibility with connecting the different clocks. Depending upon user requirements, the GBT-FPGA core can be implemented using one or more GBT links in two different modes:
+\begin{enumerate}
+\item Standard 
+\end{enumerate}
+\begin{enumerate}
+\item Latency-optimized (used when fixed, low and deterministic latency required for Tx, Rx, or both)
+\end{enumerate}
+In addition, the GBTx offers two different encoding schemes:
+\begin{enumerate}
+\item GBT-Frame mode (based on Reed-Solomon encoding)
+\end{enumerate}
+\begin{enumerate}
+\item Wide-Bus mode (no encoding)
+\end{enumerate}
+Both schemes use a \textbf{120-bit} bus to/from a GBT-FPGA link operating at 4.8Gbps
