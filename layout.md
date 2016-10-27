@@ -8,5 +8,4 @@ figures/alishba_physical-access-block_27_10_16/alishba_physical-access-block_27_
 figures/alishba_gbt-fpga-data-encoding-Wide-Bus-27_10_1/alishba_gbt-fpga-data-encoding-Wide-Bus-27_10_1.png
 Module_block_Module_block_Transmits__.md
 A_GBT_FPGA_link_is__.tex
-figures/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_16/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_16.png
 References_1_The_GBT_Project__.md
