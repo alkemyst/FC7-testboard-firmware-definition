@@ -9,5 +9,4 @@ figures/alishba_gbt-fpga-data-encoding-Wide-Bus-27_10_2/alishba_gbt-fpga-data-en
 figures/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_2/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_2.png
 Module_block_Module_block_Transmits__1.md
 Module_block_Module_block_Transmits__.md
-figures/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_1/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_1.png
 References_1_The_GBT_Project__.md
