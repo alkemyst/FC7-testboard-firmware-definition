@@ -1,4 +1,2 @@
-##Module block
-Module block Transmits slow and fast commands Receives and unpacks data Syncs trigger and stub data Can forward stub detection to fast command block Sends data to the readout block Can pre-process hits data for calibration (hit or stub counting)
-
-The module block is split in the following blocks: * CIC unpacker: (if needed) splits stub & hits streams, otherwise ~ passthrough * Chip data align * Hit processing: * Hit count can be activated to count hits (or clusters or stub) per strip locally * Always sends stub to trigger with fixed latency * When requested, queues data to readout block
+##Readout block
+Data mode: Manages memory readout and back-pressure Optionally could stream data to SFP+ connectors on the FMC (iif optical readout is present, one connector can be dedicated to fast streams) Data formatting for the DAQ, according to payload specs Performs post-scaling (to exercise fast trigger rates with limited bandwidth) Count mode: Used for commissioning: holds hit/cluster/stub counts per strip Takes care to add counters properly { as many counters as conditions (e.g. thresholds)
