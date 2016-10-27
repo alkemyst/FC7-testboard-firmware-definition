@@ -11,4 +11,5 @@ figures/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_2/alishba_gbt-fpga-data-e
 Module_block_Module_block_Transmits__.md
 Readout_block_Data_mode_Manages__.md
 Fast_command_block_Recovers_clock__.md
+Supervisor_block_Holds_a_local__.md
 References_1_The_GBT_Project__.md
