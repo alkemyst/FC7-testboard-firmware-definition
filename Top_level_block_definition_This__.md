@@ -11,4 +11,4 @@ This block has two (main) **implementations**. **Optical implementation**: wrapp
 
 The electrical access block implements also an I²C master and presents the same interface as the optical to the module block.
 
-Interface to the module block: (t.b.d.)
+Interface to the hybrid block: (t.b.d.)
