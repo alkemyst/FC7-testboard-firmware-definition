@@ -9,6 +9,6 @@ Module and readout blocks should implement two modes of operation: **standard mo
 ##Physical access block
 This block has two (main) **implementations**. **Optical implementation**: wrapping around N×GBT-FPGA blocks connecting to a COTS FMC with a number of SFP+ cages and **Electrical implementation** connecting to the custom-made interface FMC. Each custom-made FMC interface will need a different implementation of the Physical access block.
 
-The electrical access block implements also an I²C master and presents the same interface as the optical to the module block.
+The electrical access block implements also an I²C master and presents the same interface as the optical to the hybrid block.
 
 Interface to the hybrid block: (t.b.d.)
