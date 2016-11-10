@@ -8,7 +8,7 @@ figures/alishba_physical-access-block_27_10_16/alishba_physical-access-block_27_
 A_GBT_FPGA_link_is__.tex
 figures/alishba_gbt-fpga-data-encoding-Wide-Bus-27_10_2/alishba_gbt-fpga-data-encoding-Wide-Bus-27_10_2.png
 figures/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_2/alishba_gbt-fpga-data-encoding-GBT-Frame-27_10_2.png
-Module_block_Module_block_Transmits__.md
+Hybrid_block_Hybrid_block_Transmits__.md
 Readout_block_Data_mode_Manages__.md
 Fast_command_block_Recovers_clock__.md
 Supervisor_block_Holds_a_local__.md
