@@ -31,4 +31,24 @@ Clk Cycle - Data transferred
 15. 127 channels of 8th CBC top layer 
 16. 127 channels of 8th CBC bottom layer 
 
+This fits well for the 2S modules. For the case of the PS modules, since we have 2 times 8 MPA sending cluster's width and position (I don't know the details though, such as what is the maximum number of bits to be sent by one MPA), we could use the same bus but this time, the format of the data transferred would be something like this:
+
+Clk Cycle - Data transferred
+1. cluster's width and position on pixel layer of 1st MPA
+2. cluster's width and position on strip layer of 1st MPA 
+3. cluster's width and position on pixel layer of 2nd MPA 
+4. cluster's width and position on strip layer of 2nd MPA 
+5. cluster's width and position on pixel layer of 3rd MPA 
+6. cluster's width and position on strip layer of 3rd MPA 
+7. cluster's width and position on pixel layer of 4th MPA 
+8. cluster's width and position on strip layer of 4th MPA 
+9. cluster's width and position on pixel layer of 5th MPA 
+10. cluster's width and position on strip layer of 5th MPA 
+11. cluster's width and position on pixel layer of 6th MPA 
+12. cluster's width and position on strip layer of 6th MPA
+13. cluster's width and position on pixel layer of 7th MPA 
+14. cluster's width and position on strip layer of 7th MPA 
+15. cluster's width and position on pixel layer of 8th MPA 
+16. cluster's width and position on strip layer of 8th MPA 
+
 Interface to the hybrid block: (t.b.d.)
