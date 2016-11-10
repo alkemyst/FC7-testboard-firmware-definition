@@ -1,6 +1,7 @@
 Introduction_In_the_context_of__.md
 Development_process_The_first_stage__.md
 figures/top_level1/top_level1.png
+figures/top_level2/top_level2.png
 figures/Untitled 1/Untitled 1.png
 Top_level_block_definition_This__.md
 subsubsection_The_GBT_FPGA_wrapper__.tex
