@@ -11,7 +11,7 @@ This block has two (main) **implementations**. **Optical implementation**: wrapp
 
 The electrical access block implements also an I²C master and presents the same interface as the optical to the hybrid block. Since it must be independent of whether there is an optical or electrical connection, a CIC or not, the data sent to the hybrid module has to be slightly processed.
 
-**Suggestion:** sending 16 times 127 bits to each hybrid block ? The interface (concerning the triggered data) to the hybrid block would therefor simply be a 127-bit wide bus on which we would send all the 8 CBCs 2 x 127 channels in 16 clock cycles. In the case of a full, complete hybrid with 8 CBC3, we could get all the data. For an hybrid with 2 CBC2, only the first 4 clock cycles would contain meaning full data, the others being all zero (for the 6 non-present CBCs). The format of the data transfer could be something like this:
+**Suggestion:** sending 16 times 127 bits to each hybrid block ? The interface (concerning the triggered data) to the hybrid block would therefore simply be a 127-bit wide bus on which we would send all the 8 CBCs 2 x 127 channels in 16 clock cycles. In the case of a full, complete hybrid with 8 CBC3, we could get all the data. For an hybrid with 2 CBC2, only the first 4 clock cycles would contain meaning full data, the others being all zero (for the 6 non-present CBCs). The format of the data transfer could be something like this:
 
 Clk Cycle - Data transferred
 1. 127 channels of 1st CBC top layer 
