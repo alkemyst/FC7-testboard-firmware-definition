@@ -32,3 +32,8 @@ The physical block receives slow control commands from the Supervisor Block and 
 
     type cmd_rbus_array is array(natural range <>) of cmd_rbus;
     
+If an error occurs during the transaction, the reply will have the `cmd_err` bit high as well as the `cmd_strobe` bit high, and the `cmd_data` will contain the error code.
+
+###Fast Command
+
+    
