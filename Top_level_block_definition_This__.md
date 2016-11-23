@@ -11,25 +11,26 @@ This block has two (main) **implementations**. **Optical implementation**: wrapp
 
 The electrical access block implements also an I²C master and presents the same interface as the optical to the hybrid block. Since it must be independent of whether there is an optical or electrical connection, a CIC or not, the data sent to the hybrid module has to be slightly processed.
 
-**Suggestion:** sending 16 times 138 bits (127 for the channels + 9 for pipe address or L1 counter + 2 for Start bits or latency error) to each hybrid block ? The interface (concerning the triggered data) to the hybrid block would therefore simply be a 138-bit wide bus on which we would send all the 8 CBCs 2 x 127 channels and additional information in 16 clock cycles. In the case of a full, complete hybrid with 8 CBC3, we could get all the data. For an hybrid with 2 CBC2, only the first 4 clock cycles would contain meaning full data, the others being all zero (for the 6 non-present CBCs). The format of the data transfer could be something like this:
+###Triggered data readout
+The physical access block sends 16 times 138 bits (127 for the channels + 9 for pipe address or L1 counter + 2 for Start bits or latency error) to each hybrid block ? The interface (concerning the triggered data) to the hybrid block is therefore simply be a 138-bit wide bus on which all the 8 CBCs 2 x 127 channels are sent, as well as additional information, in 16 clock cycles. In the case of a full, complete hybrid with 8 CBC3, we get all the data. For an hybrid with 2 CBC2, only the first 4 clock cycles contain meaning full data, the others being all zero (for the 6 non-present CBCs). The format of the data transfer is the following:
 
 Clk Cycle - Data transferred
-1. 127 channels top layer + 2 start bits + 9 bits pipe address of 1st CBC 
-2. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 1st CBC 
-3. 127 channels top layer + 2 start bits + 9 bits pipe address  of 2nd CBC 
-4. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 2nd CBC 
-5. 127 channels top layer + 2 start bits + 9 bits pipe address  of 3rd CBC 
-6. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 3rd CBC
-7. 127 channels top layer + 2 start bits + 9 bits pipe address  of 4th CBC 
-8. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 4th CBC 
-9. 127 channels top layer + 2 start bits + 9 bits pipe address  of 5th CBC 
-10. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 5th CBC 
-11. 127 channels top layer + 2 start bits + 9 bits pipe address  of 6th CBC 
-12. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 6th CBC
-13. 127 channels top layer + 2 start bits + 9 bits pipe address  of 7th CBC 
-14. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 7th CBC 
-15. 127 channels top layer + 2 start bits + 9 bits pipe address  of 8th CBC 
-16. 127 channels bottom layer + 2 bits Latency Error + 9 bits L1 counter of 8th CBC
+1. 2 start bits + 9 bits pipe address + 127 channels top layer of 1st CBC 
+2. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 1st CBC 
+3. 2 start bits + 9 bits pipe address + 127 channels top layer of 2nd CBC 
+4. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 2nd CBC 
+5. 2 start bits + 9 bits pipe address + 127 channels top layer of 3rd CBC 
+6. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 3rd CBC
+7. 2 start bits + 9 bits pipe address + 127 channels top layer of 4th CBC 
+8. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 4th CBC 
+9. 2 start bits + 9 bits pipe address + 127 channels top layer of 5th CBC 
+10. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 5th CBC 
+11. 2 start bits + 9 bits pipe address + 127 channels top layer of 6th CBC 
+12. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 6th CBC
+13. 2 start bits + 9 bits pipe address + 127 channels top layer of 7th CBC 
+14. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 7th CBC 
+15. 2 start bits + 9 bits pipe address + 127 channels top layer of 8th CBC 
+16. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 8th CBC
 
 This fits well for the 2S modules. For the case of the PS modules, since we have 2 times 8 MPA sending cluster's width and position (I don't know the details though, such as what is the maximum number of bits to be sent by one MPA), we could use the same bus but this time, the format of the data transferred would be something like this:
 
