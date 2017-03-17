@@ -12,17 +12,17 @@ This block has two (main) **implementations**. **Optical implementation**: wrapp
 The electrical access block implements also an I²C master and presents the same interface as the optical to the hybrid block. Since it must be independent of whether there is an optical or electrical connection, a CIC or not, the data sent to the hybrid module has to be slightly processed.
 
 ###Triggered data readout
-The physical access block sends 8 times 276 bits to each hybrid block at 40MHz. The interface (concerning the triggered data) to the hybrid block is therefore simply be a 276-bit wide bus on which all the triggered data of a hybrid is send in 8 clock cycles. In the case of a full, complete hybrid with 8 CBC3, we get all the data. For an hybrid with 2 CBCs, only the first 2 clock cycles contain meaning full data, the others being all zero (for the 6 non-present CBCs). The format of the data transfer is the following:
+The physical access block sends 8 times 276 bits to each hybrid block at 40MHz. The interface (concerning the triggered data) to the hybrid block is therefore simply be a 276-bit wide bus on which all the triggered data of a hybrid is send in 8 clock cycles. In the case of a full, complete hybrid with 8 CBC3, we get all the data. For an hybrid with 2 CBCs, only the first 2 clock cycles contain meaning full data, the others being all zero (for the 6 non-present CBCs). The format of the data transfer is the following (for a full 8CBC3 hybrid):
 
 Clk Cycle - Data transferred
 1. 2 start bits + 2 Error bits + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 1st CBC 
-1. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 1st CBC 
-1. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 1st CBC 
-1. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 1st CBC 
-5. 2 start bits + 9 bits pipe address + 127 channels top layer of 3rd CBC 
-6. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 3rd CBC
-7. 2 start bits + 9 bits pipe address + 127 channels top layer of 4th CBC 
-8. 2 bits Latency Error + 9 bits L1 counter + 127 channels bottom layer of 4th CBC 
+2. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 2nd CBC 
+3. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 3rd CBC 
+4. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 4th CBC 
+5. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 5th CBC 
+6. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 6th CBC 
+7. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 7th CBC 
+8. 2 start bits + 2 Error error + 9 bits pipe address + 9 bits L1 counter + 254 channel data of 8th CBC 
 
 This fits well for the 2S modules. For the case of the PS modules, since we have 2 times 8 MPA sending cluster's width and position (I don't know the details though, such as what is the maximum number of bits to be sent by one MPA), we could use the same bus but this time, the format of the data transferred would be something like this:
 
