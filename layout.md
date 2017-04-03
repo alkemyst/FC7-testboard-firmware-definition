@@ -13,4 +13,5 @@ Hybrid_block_Hybrid_block_Transmits__.md
 Readout_block_Data_mode_Manages__.md
 Fast_command_block_Recovers_clock__.md
 Supervisor_block_Holds_a_local__.md
+CBC3_emulator_In_order_to__.tex
 References_1_The_GBT_Project__.md
