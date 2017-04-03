@@ -14,7 +14,7 @@ Triggered data is put on the triggered data line on reception of a l1 trigger fa
 The stub data and triggered data generation is different for the emulator and the real CBC3 case in the sense that the real CBC3 puts the triggered and stub data on 6 lines at 320MHz. Implementing a similar 320MHz logic on the fc7 FPGA seemed to result in timing closure problems. As a result we opted for a triggered data and stub data output at 40MHz where the data is outputted at 40MHz on 8 bit wide busses. This mimics the real processing of the data. In the real CBC3 case a first deserialisation will be done on ISERDES of the Kintex7. When using this emulator this first deserialisation is skipped and we produce already the deserialised data in the emulator. In this way we have a design that has timing closure and that, except for the first deserialisation in the ISERDES, allows to test the complete data flow. 
 
 **How to use the CBC3 emulator for testing the data flow:**
-1) Go to user_package_basic and set it as follows:
+1) Go to user package basic and set it as follows:
 
         --===================================--
         -- FMC Config
@@ -37,6 +37,7 @@ The stub data and triggered data generation is different for the emulator and th
         --===================================--
 
    **For now it is only possible to generate 1 CBC.  We will fix this soon. So please leave the NUM_CHIPS to 1 for now.**
+   
 2) The default settings (and without issuing triggers) of the i2c registers give no output for the triggered data and for the stub data: as described for the case VTH <700 in the above table.
 
 *in simulation: look at the stub to hb signal in user core.vhd. These are the 40 bit wide busses for each CBC going to the hybrid block.
