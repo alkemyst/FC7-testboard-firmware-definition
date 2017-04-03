@@ -42,25 +42,25 @@ The stub data and triggered data generation is different for the emulator and th
    
 2) The default settings (and without issuing triggers) of the i2c registers give no output for the triggered data and for the stub data the output is as described for the case VTH <700 in the above table.
 
-*in simulation: look at the stub\_to\_hb\_signal in user\_core.vhd. These are the 40 bit wide buses for each CBC going to the hybrid block.
+ * in simulation: look at the stub\_to\_hb\_signal in user\_core.vhd. These are the 40 bit wide buses for each CBC going to the hybrid block. 
 
-*on board: have to connect with hybrid block and back end to see data output
+ * on board: have to connect with hybrid block and back end to see data output
 
 3) To issue triggers:
 
-*in simulation: use the trigger commands provided in Mykyta’s sim\_usr\_general file. You should see trigger data to the hybrid block (trig\_data\_to\_hb signal in user\_core) in the format as agreed upon (276 wide busses for each hybrid). The error bits are programmed to be zero, the l1 counter to increment and the channel data to be zero.
+ * in simulation: use the trigger commands provided in Mykyta’s sim\_usr\_general file. You should see trigger data to the hybrid block (trig\_data\_to\_hb signal in user\_core) in the format as agreed upon (276 wide busses for each hybrid). The error bits are programmed to be zero, the l1 counter to increment and the channel data to be zero.
 
-*on board: have to connect with hybrid block and back end to see data output
+ * on board: have to connect with hybrid block and back end to see data output
 
 4) Write/Reading registers over i2c. 
 
-*in simulation: use the IPBUS like transactions defined in Mykyta’s sim usr general file. To read/write the registers and check the i2c reply (from the user\_core) signal in the simulation.
+ * in simulation: use the IPBUS like transactions defined in Mykyta’s sim usr general file. To read/write the registers and check the i2c reply (from the user\_core) signal in the simulation.
 
-*on board: use the python scripts provided by Mykyta to read from all the registers of the CBC3 emulator and see that writing and reading from the i2c registers works.
+ * on board: use the python scripts provided by Mykyta to read from all the registers of the CBC3 emulator and see that writing and reading from the i2c registers works.
 
 5) change data format through i2c:
 
-*in simulation: write to an i2c register e.g. the VTH/mask registers and see the stub/channel data changing after the i2c write has changed the register values (see step 2 and 3 on how to see stub/triggered data).
+ * in simulation: write to an i2c register e.g. the VTH/mask registers and see the stub/channel data changing after the i2c write has changed the register values (see step 2 and 3 on how to see stub/triggered data).
 
-*on board: have to connect with hybrid block and back end to see data output
+ * on board: have to connect with hybrid block and back end to see data output
 
