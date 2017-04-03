@@ -26,7 +26,7 @@ The stub data and triggered data generation is different for the emulator and th
         -- specifies, what's connected to the FMC2 (l8)
         constant FMC2                   : fmc_hardware_type := FMC_NONE;
         —===================================—
-     --===================================--
+        --===================================--
         -- Important configs (have to correspond the FMC's configs)
         --===================================--
         -- 2 for CBC2, 3 for CBC3 (be careful!!!)
@@ -38,15 +38,25 @@ The stub data and triggered data generation is different for the emulator and th
 
    **For now it is only possible to generate 1 CBC.  We will fix this soon. So please leave the NUM_CHIPS to 1 for now.**
 2. The default settings (and without issuing triggers) of the i2c registers give no output for the triggered data and for the stub data: as described for the case VTH <700 in the above table.
+
 *in simulation: look at the stub to hb signal in user core.vhd. These are the 40 bit wide busses for each CBC going to the hybrid block.
+
 *on board: have to connect with hybrid block and back end to see data output
 3. To issue triggers:
+
 *in simulation: use the trigger commands provided in Mykyta’s sim usr general file. You should see trigger data to the hybrid block (trig data to hb in user core) in the format as agreed upon (276 wide busses for each hybrid). The error bits are programmed to be zero, the l1 counter to increment and the channel data to be zero.
+
 *on board: have to connect with hybrid block and back end to see data output
+
 4. Write/Reading registers over i2c. 
+
 *in simulation: use the IPBUS like transactions defined in Mykyta’s sim usr general file (e.g. the procedure write i2c command1). To read/write the registers and check the i2c reply (from the user core) signal in the simulation.
+
 *on board: use the python scripts provided by Mykyta to read from all the registers of the CBC3 emulator and see that writing and reading works. See e.g. the I2CTester() command in send command.py (link) where you read default values on all pages, write to all registers and read the written value.
+
 5. change data format through i2c:
-in simulation: write to an i2c register e.g. the VTH/mask registers and see the stub/channel data changing after the i2c write has changed the register values (see step 2 and 3 on how to see stub/triggered data).
-on board: have to connect with hybrid block and back end to see data output
+
+*in simulation: write to an i2c register e.g. the VTH/mask registers and see the stub/channel data changing after the i2c write has changed the register values (see step 2 and 3 on how to see stub/triggered data).
+
+*on board: have to connect with hybrid block and back end to see data output
 
