@@ -43,6 +43,7 @@ The stub data and triggered data generation is different for the emulator and th
 *in simulation: look at the stub to hb signal in user core.vhd. These are the 40 bit wide busses for each CBC going to the hybrid block.
 
 *on board: have to connect with hybrid block and back end to see data output
+
 3) To issue triggers:
 
 *in simulation: use the trigger commands provided in Mykyta’s sim usr general file. You should see trigger data to the hybrid block (trig data to hb in user core) in the format as agreed upon (276 wide busses for each hybrid). The error bits are programmed to be zero, the l1 counter to increment and the channel data to be zero.
