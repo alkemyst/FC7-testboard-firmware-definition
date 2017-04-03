@@ -14,6 +14,5 @@ Readout_block_Data_mode_Manages__.md
 Fast_command_block_Recovers_clock__.md
 Supervisor_block_Holds_a_local__.md
 CBC3_emulator_In_order_to__.md
-CBC3_emulator_In_order_to__.tex
 figures/Screen Shot 2017-04-03 at 11.12.31/Screen Shot 2017-04-03 at 11.12.31.png
 References_1_The_GBT_Project__.md
