@@ -18,25 +18,25 @@ The stub data and triggered data generation is different for the emulator and th
 
 \textbf{How to use the CBC3 emulator for testing the data flow:}
 1. Go to user_package_basic and set it as follows:
---===================================--
-    -- FMC Config
     --===================================--
-    -- which implementation? electrical or optical? that is the question!
-    constant IMPLEMENTATION         : implementation_type := EMULATION_CBC3;
-    -- specifies, what's connected to the FMC1 (l12)
-    constant FMC1                   : fmc_hardware_type := FMC_NONE;
-    -- specifies, what's connected to the FMC2 (l8)
-    constant FMC2                   : fmc_hardware_type := FMC_NONE;
-    —===================================—
- --===================================--
-    -- Important configs (have to correspond the FMC's configs)
-    --===================================--
-    -- 2 for CBC2, 3 for CBC3 (be careful!!!)
-    constant CBC_VERSION            : integer := 3;     
-
-    constant NUM_HYBRIDS            : integer := 1;
-    constant NUM_CHIPS              : integer := 1;    
-    --===================================--
+        -- FMC Config
+        --===================================--
+        -- which implementation? electrical or optical? that is the question!
+        constant IMPLEMENTATION         : implementation_type := EMULATION_CBC3;
+        -- specifies, what's connected to the FMC1 (l12)
+        constant FMC1                   : fmc_hardware_type := FMC_NONE;
+        -- specifies, what's connected to the FMC2 (l8)
+        constant FMC2                   : fmc_hardware_type := FMC_NONE;
+        —===================================—
+     --===================================--
+        -- Important configs (have to correspond the FMC's configs)
+        --===================================--
+        -- 2 for CBC2, 3 for CBC3 (be careful!!!)
+        constant CBC_VERSION            : integer := 3;     
+    
+        constant NUM_HYBRIDS            : integer := 1;
+        constant NUM_CHIPS              : integer := 1;    
+        --===================================--
 
 \textit{For now it is only possible to generate 1 CBC.  We will fix this soon. So please leave the NUM_CHIPS to 1 for now.}
 
